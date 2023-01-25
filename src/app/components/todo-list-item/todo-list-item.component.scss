@@ -16,8 +16,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
   }
-  
-  &__button {
-    margin-left: 16px;
-  }
+}
+
+.button {
+  margin-left: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.button-add {
+  background-color: #e36876;
 }

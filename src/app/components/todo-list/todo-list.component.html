@@ -10,14 +10,16 @@
   </ul>
   <div class="tasks-action">
     <input
+      matInput
       class="tasks-action__input"
       type="text"
       placeholder="Add a new todo"
       [(ngModel)]="todoText"
-    >
+    />
     <button
-      class="tasks-action__button"
+      class="button button-add"
       type="button"
+      [class.disabled]="!todoText"
       [disabled]="!todoText"
       (click)="onAddClick(todoList, todoText)"
     >
