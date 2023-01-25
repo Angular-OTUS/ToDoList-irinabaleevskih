@@ -1,0 +1,32 @@
+<div class="tasks-container">
+  <h1 class="tasks-title">Todo List</h1>
+  <ul *ngIf="todoList.length > 0; else empty" class="tasks-list">
+    <app-todo-list-item
+      *ngFor="let todo of todoList"
+      [itemValue]="todo"
+      (removeItem)="removeItem($event)"
+    >
+    </app-todo-list-item>    
+  </ul>
+  <div class="tasks-action">
+    <input
+      class="tasks-action__input"
+      type="text"
+      placeholder="Add a new todo"
+      [(ngModel)]="todoText"
+    >
+    <button
+      class="tasks-action__button"
+      type="button"
+      [disabled]="!todoText"
+      (click)="onAddClick(todoList, todoText)"
+    >
+      Add task
+    </button>
+  </div>
+</div>
+
+<ng-template #empty>
+  <div class="empty">You don't have any todo.</div>
+</ng-template>
+ 

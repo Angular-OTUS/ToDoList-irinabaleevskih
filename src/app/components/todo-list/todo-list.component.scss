@@ -1,0 +1,35 @@
+:host {
+  display: block;
+}
+
+.tasks-container {
+  padding: 16px;
+}
+
+.tasks-list {
+  max-width: 400px;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.tasks-action {
+  max-width: 400px;
+  display: flex;
+  justify-content: space-between;
+
+  &__input {
+    width: 100%;
+    padding: 8px;
+  }
+
+  &__button {
+    min-width: 80px;
+    margin-left: 16px;
+    background-color: rgb(251, 177, 246);
+  }
+}
+
+.empty {
+  margin-bottom: 16px;
+}

@@ -1,0 +1,10 @@
+<li *ngIf="itemValue" class="item">
+  <span class="item__text">{{ itemValue.text }}</span>
+  <button
+    class="item__button"
+    type="button"
+    (click)="onRemoveClick(itemValue.id)"
+  >
+    Delete
+  </button>
+</li>
