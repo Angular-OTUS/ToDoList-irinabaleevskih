@@ -1,16 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Todo } from 'src/app/models/todo';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.scss']
+  styleUrls: ['./todo-list.component.scss'],
 })
-export class TodoListComponent {
+export class TodoListComponent implements OnInit {
+  protected isLoading = true;
+
   protected todoList: readonly Todo[] = [];
 
-  protected todoText: string = '';
+  protected todoText = '';
+
+  ngOnInit() {
+    setTimeout(() => this.isLoading = false, 500);
+  }
 
   protected onAddClick(todoList: readonly Todo[], todoText: string) {
     this.todoList = [

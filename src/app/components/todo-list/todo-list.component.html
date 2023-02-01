@@ -1,13 +1,16 @@
 <div class="tasks-container">
   <h1 class="tasks-title">Todo List</h1>
-  <ul *ngIf="todoList.length > 0; else empty" class="tasks-list">
-    <app-todo-list-item
-      *ngFor="let todo of todoList"
-      [itemValue]="todo"
-      (removeItem)="removeItem($event)"
-    >
-    </app-todo-list-item>    
-  </ul>
+  <ng-container *ngIf="!isLoading; else spinner">
+    <ul *ngIf="todoList.length > 0; else empty" class="tasks-list">
+      <app-todo-list-item
+        *ngFor="let todo of todoList"
+        [itemValue]="todo"
+        (removeItem)="removeItem($event)"
+      >
+      </app-todo-list-item>    
+    </ul>
+  </ng-container>
+  
   <div class="tasks-action">
     <input
       matInput
@@ -16,19 +19,22 @@
       placeholder="Add a new todo"
       [(ngModel)]="todoText"
     />
-    <button
-      class="button button-add"
-      type="button"
-      [class.disabled]="!todoText"
-      [disabled]="!todoText"
-      (click)="onAddClick(todoList, todoText)"
+    <app-button
+      buttonTitle="Add task"
+      class="tasks-action__button"
+      [isDisabled]="!todoText || isLoading"
+      (buttonClick)="onAddClick(todoList, todoText)"
     >
-      Add task
-    </button>
+    </app-button>
   </div>
 </div>
 
 <ng-template #empty>
   <div class="empty">You don't have any todo.</div>
 </ng-template>
- 
+
+<ng-template #spinner>
+  <div class="spinner-container">
+    <mat-icon class="spinner">refresh</mat-icon>
+  </div>  
+</ng-template>

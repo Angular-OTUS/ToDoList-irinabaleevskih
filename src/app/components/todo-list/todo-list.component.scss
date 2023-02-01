@@ -4,35 +4,28 @@
 
 .tasks-container {
   padding: 16px;
+  max-width: 400px;
 }
 
 .tasks-list {
-  max-width: 400px;
   padding: 0;
   margin: 0;
   list-style-type: none;
 }
 
 .tasks-action {
-  max-width: 400px;
   display: flex;
   justify-content: space-between;
 
   &__input {
     width: 100%;
     padding: 8px;
+    margin-right: 16px;
   }
 }
 
-button {
-  margin-left: 16px;
-  border: none;
-}
-
-.button-add {
-  background-color: #5ce6b1;
+.tasks-action__button {
   min-width: 80px;
-  cursor: pointer;
 }
 
 .disabled {
@@ -41,4 +34,27 @@ button {
 
 .empty {
   margin-bottom: 16px;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

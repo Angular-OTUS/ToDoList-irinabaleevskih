@@ -4,7 +4,7 @@ import { Todo } from "src/app/models/todo";
 @Component({
   selector: 'app-todo-list-item',
   templateUrl: './todo-list-item.component.html',
-  styleUrls: ['./todo-list-item.component.scss']
+  styleUrls: ['./todo-list-item.component.scss'],
 })
 export class TodoListItemComponent {
   @Input()
@@ -13,7 +13,7 @@ export class TodoListItemComponent {
   @Output()
   public readonly removeItem = new EventEmitter<number>();
 
-  protected onRemoveClick(todoId: number): void {
+  protected onRemoveItemClick(todoId: number): void {
     this.removeItem.emit(todoId);
   }
 }
