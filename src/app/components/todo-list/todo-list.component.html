@@ -1,16 +1,23 @@
 <div class="tasks-container">
   <h1 class="tasks-title">Todo List</h1>
-  <ng-container *ngIf="!isLoading; else spinner">
-    <ul *ngIf="todoList.length > 0; else empty" class="tasks-list">
-      <app-todo-list-item
-        *ngFor="let todo of todoList"
-        [itemValue]="todo"
-        (removeItem)="removeItem($event)"
-      >
-      </app-todo-list-item>    
-    </ul>
-  </ng-container>
-  
+  <div *ngIf="!isLoading; else spinner" class="tasks-list-container">
+    <ng-container *ngIf="todoList.length > 0; else empty">
+      <ul class="tasks-list">
+        <app-todo-list-item
+          *ngFor="let todo of todoList"
+          class="task"
+          [class.selected]="todo.id === selectedItemId"
+          [itemValue]="todo"
+          (removeItem)="removeItem($event)"
+          (selectItem)="selectItem($event)"
+        >
+        </app-todo-list-item>    
+      </ul>
+      <div *ngIf="selectedItemId !== null; else emptyDescription" class="tasks-description">
+        {{ getDescription() }}
+      </div>
+    </ng-container>
+  </div>
   <div class="tasks-action">
     <input
       matInput
@@ -23,14 +30,28 @@
       buttonTitle="Add task"
       class="tasks-action__button"
       [isDisabled]="!todoText || isLoading"
-      (buttonClick)="onAddClick(todoList, todoText)"
+      [tooltip]="'Click to add todo'"
+      (buttonClick)="onAddClick(todoList, todoText, todoDescription)"
     >
     </app-button>
-  </div>
+    <textarea
+      matInput
+      class="tasks-action__text-field"
+      placeholder="Add description for todo"
+      rows="5"
+      maxlength="120"
+      [(ngModel)]="todoDescription"
+    >
+    </textarea>
+  </div>  
 </div>
 
 <ng-template #empty>
   <div class="empty">You don't have any todo.</div>
+</ng-template>
+
+<ng-template #emptyDescription>
+  <div class="tasks-description">Select todo to view description</div>
 </ng-template>
 
 <ng-template #spinner>

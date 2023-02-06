@@ -13,7 +13,14 @@ export class TodoListItemComponent {
   @Output()
   public readonly removeItem = new EventEmitter<number>();
 
+  @Output()
+  public readonly selectItem = new EventEmitter<number>();
+
   protected onRemoveItemClick(todoId: number): void {
     this.removeItem.emit(todoId);
+  }
+
+  protected onItemClick(todoId: number): void {
+    this.selectItem.emit(todoId);
   }
 }

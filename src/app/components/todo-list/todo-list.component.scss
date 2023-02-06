@@ -4,28 +4,63 @@
 
 .tasks-container {
   padding: 16px;
-  max-width: 400px;
+}
+
+.tasks-list-container {
+  display: flex;  
+}
+
+.tasks-description {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex: 1;
+  margin-left: 16px;
+  padding: 4px;
+  font-size: 0.9em;
+  border: 1px solid #858585;
+  border-radius: 4px;
 }
 
 .tasks-list {
+  width: 100%;
+  max-width: 400px;
   padding: 0;
   margin: 0;
   list-style-type: none;
 }
 
-.tasks-action {
-  display: flex;
-  justify-content: space-between;
+.task {
+  background-color: rgb(240, 240, 240);
+  border-radius: 4px;
 
-  &__input {
-    width: 100%;
-    padding: 8px;
-    margin-right: 16px;
+  &.selected {
+    background-color: #c5ecaf;
   }
 }
 
-.tasks-action__button {
-  min-width: 80px;
+.task:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.tasks-action {
+  display: grid;
+  grid-template-columns: 1fr 80px;
+  max-width: 400px;
+  margin-top: 16px;
+
+  &__input,
+  &__text-field {
+    padding: 8px;
+    margin-right: 16px;
+  }
+
+  &__text-field {
+    margin-top: 16px;
+    font-family: inherit;
+    resize: vertical;
+  }
 }
 
 .disabled {
