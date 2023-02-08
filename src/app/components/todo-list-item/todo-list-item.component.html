@@ -1,9 +1,5 @@
-<li *ngIf="itemValue" class="item">
-  <span class="item__text">{{ itemValue.text }}</span>
-  <app-button
-    class="item__button"
-    buttonTitle="Delete"
-    (buttonClick)="onRemoveItemClick(itemValue.id)"
-  >
+<div *ngIf="item" class="item">
+  <span class="item__text">{{ item.text }}</span>
+  <app-button class="item__button" title="Delete" (buttonClick)="onRemoveButtonClick(item.id)">
   </app-button>
-</li>
+</div>

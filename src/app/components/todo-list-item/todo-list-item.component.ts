@@ -8,12 +8,12 @@ import { Todo } from "src/app/models/todo";
 })
 export class TodoListItemComponent {
   @Input()
-  public itemValue?: Todo;
+  public item!: Todo;
 
   @Output()
   public readonly removeItem = new EventEmitter<number>();
 
-  protected onRemoveItemClick(todoId: number): void {
+  protected onRemoveButtonClick(todoId: number): void {
     this.removeItem.emit(todoId);
   }
 }

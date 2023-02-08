@@ -2,12 +2,13 @@
   <h1 class="tasks-title">Todo List</h1>
   <ng-container *ngIf="!isLoading; else spinner">
     <ul *ngIf="todoList.length > 0; else empty" class="tasks-list">
-      <app-todo-list-item
-        *ngFor="let todo of todoList"
-        [itemValue]="todo"
-        (removeItem)="removeItem($event)"
-      >
-      </app-todo-list-item>    
+      <li *ngFor="let todo of todoList">
+        <app-todo-list-item
+          [item]="todo"
+          (removeItem)="removeItem($event)"
+          >
+        </app-todo-list-item>
+      </li>
     </ul>
   </ng-container>
   
@@ -20,10 +21,10 @@
       [(ngModel)]="todoText"
     />
     <app-button
-      buttonTitle="Add task"
+      title="Add task"
       class="tasks-action__button"
       [isDisabled]="!todoText || isLoading"
-      (buttonClick)="onAddClick(todoList, todoText)"
+      (buttonClick)="onAddButtonClick(todoList, todoText)"
     >
     </app-button>
   </div>
