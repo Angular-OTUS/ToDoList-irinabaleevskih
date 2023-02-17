@@ -18,11 +18,11 @@ export class TodoListComponent implements OnInit {
     setTimeout(() => this.isLoading = false, 500);
   }
 
-  protected onAddButtonClick(todoList: readonly Todo[], todoText: string) {
+  protected onAddButtonClick(todoText: string) {
     this.todoList = [
-      ...todoList,
+      ...this.todoList,
       {
-        id: this.getMaxValue(todoList),
+        id: this.getMaxValue(this.todoList),
         text: todoText,
       },
     ];

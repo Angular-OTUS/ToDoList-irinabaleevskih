@@ -24,7 +24,7 @@
       title="Add task"
       class="tasks-action__button"
       [isDisabled]="!todoText || isLoading"
-      (buttonClick)="onAddButtonClick(todoList, todoText)"
+      (click)="onAddButtonClick(todoText)"
     >
     </app-button>
   </div>
