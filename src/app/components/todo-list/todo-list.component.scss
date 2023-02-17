@@ -31,15 +31,6 @@
   list-style-type: none;
 }
 
-.task {
-  background-color: rgb(240, 240, 240);
-  border-radius: 4px;
-
-  &.selected {
-    background-color: #c5ecaf;
-  }
-}
-
 .task:not(:last-child) {
   margin-bottom: 8px;
 }
@@ -65,10 +56,6 @@
 
 .disabled {
   opacity: 0.5;
-}
-
-.empty {
-  margin-bottom: 16px;
 }
 
 .spinner-container {

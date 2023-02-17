@@ -10,7 +10,7 @@ import {
   Input,
   OnDestroy,
 } from "@angular/core";
-import { TooltipComponent } from "../shared/components/tooltip/tooltip.component";
+import { TooltipComponent } from "../components";
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector

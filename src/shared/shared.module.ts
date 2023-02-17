@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
-import { TooltipDirective } from "../directives/tooltip.directive";
-import { ButtonComponent } from "./components/button/button.component";
-import { TooltipComponent } from "./components/tooltip/tooltip.component";
+import { ButtonComponent, TooltipComponent } from "./components";
+import { TooltipDirective } from "./directives/tooltip.directive";
 
 @NgModule({
   declarations: [

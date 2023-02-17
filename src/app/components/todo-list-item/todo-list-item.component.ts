@@ -8,7 +8,10 @@ import { Todo } from "src/app/models/todo";
 })
 export class TodoListItemComponent {
   @Input()
-  public itemValue?: Todo;
+  public item!: Todo;
+
+  @Input()
+  public isSelected!: boolean;
 
   @Output()
   public readonly removeItem = new EventEmitter<number>();
@@ -16,7 +19,7 @@ export class TodoListItemComponent {
   @Output()
   public readonly selectItem = new EventEmitter<number>();
 
-  protected onRemoveItemClick(todoId: number): void {
+  protected onRemoveButtonClick(todoId: number): void {
     this.removeItem.emit(todoId);
   }
 

@@ -22,11 +22,11 @@ export class TodoListComponent implements OnInit {
     setTimeout(() => this.isLoading = false, 500);
   }
 
-  protected onAddClick(todoList: readonly Todo[], todoText: string,  todoDescription: string) {
+  protected onAddClick(todoText: string,  todoDescription: string) {
     this.todoList = [
-      ...todoList,
+      ...this.todoList,
       {
-        id: this.getMaxValue(todoList),
+        id: this.getMaxValue(this.todoList),
         text: todoText,
         description: todoDescription,
       },

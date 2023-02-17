@@ -1,17 +1,17 @@
-<li *ngIf="itemValue" class="item">
+<div *ngIf="item" class="item" [class.selected]="isSelected">
   <button
     class="item__text-button"
     type="button"
-    [tooltip]="'Click to view description'"
-    (click)="onItemClick(itemValue.id)"
+    tooltip="Click to view description"
+    (click)="onItemClick(item.id)"
   >
-    <span class="item__text">{{ itemValue.text }}</span>
+    <span class="item__text">{{ item.text }}</span>
   </button>  
   <app-button
-    class="item__button"
-    buttonTitle="Delete"
-    [tooltip]="'Click to delete todo'"
-    (buttonClick)="onRemoveItemClick(itemValue.id)"
+    class="item__delete-button"
+    title="Delete"
+    tooltip="Click to delete todo"
+    (click)="onRemoveButtonClick(item.id)"
   >
   </app-button>
-</li>
+</div>
