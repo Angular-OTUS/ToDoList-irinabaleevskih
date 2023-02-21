@@ -6,15 +6,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px;
-  margin-bottom: 8px;
+  padding-right: 8px;
   background-color: rgb(240, 240, 240);
   border-radius: 4px;
+  
+  &.selected {
+    background-color: #c5ecaf;
+  }
 
   &__text {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  &__text-button {
+    width: 100%;
+    text-align: start;
+    padding: 8px;
+    border: 0;
+    background-color: inherit;
+    cursor: pointer;
   }
 
   &__delete-button {

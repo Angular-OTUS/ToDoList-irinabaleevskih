@@ -14,23 +14,40 @@ export class TodoListComponent implements OnInit {
 
   protected todoText = '';
 
+  protected todoDescription = '';
+
+  protected selectedItemId: number | null = null;
+
   ngOnInit() {
     setTimeout(() => this.isLoading = false, 500);
   }
 
-  protected onAddButtonClick(todoText: string) {
+  protected onAddClick(todoText: string,  todoDescription: string) {
     this.todoList = [
       ...this.todoList,
       {
         id: this.getMaxValue(this.todoList),
         text: todoText,
+        description: todoDescription,
       },
     ];
     this.todoText = '';
+    this.todoDescription = '';
   }
 
   protected removeItem(id: number): void {
     this.todoList = this.todoList.filter(item => item.id !== id);
+    if (this.selectedItemId === id) {
+      this.selectedItemId = null;
+    }
+  }
+
+  protected selectItem(id: number): void {
+    this.selectedItemId = id;
+  }
+
+  protected getDescription(): string {
+    return this.todoList.find(item => item.id === this.selectedItemId)?.description ?? '';
   }
 
   private getMaxValue(todoList: readonly Todo[]): number {

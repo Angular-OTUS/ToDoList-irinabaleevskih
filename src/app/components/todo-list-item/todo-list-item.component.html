@@ -1,4 +1,17 @@
-<div *ngIf="item" class="item">
-  <span class="item__text">{{ item.text }}</span>
-  <app-button class="item__delete-button" title="Delete" (click)="onRemoveButtonClick(item.id)"></app-button>
+<div *ngIf="item" class="item" [class.selected]="isSelected">
+  <button
+    class="item__text-button"
+    type="button"
+    tooltip="Click to view description"
+    (click)="onItemClick(item.id)"
+  >
+    <span class="item__text">{{ item.text }}</span>
+  </button>  
+  <app-button
+    class="item__delete-button"
+    title="Delete"
+    tooltip="Click to delete todo"
+    (click)="onRemoveButtonClick(item.id)"
+  >
+  </app-button>
 </div>
