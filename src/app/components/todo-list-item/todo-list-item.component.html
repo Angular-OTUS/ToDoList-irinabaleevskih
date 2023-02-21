@@ -1,0 +1,4 @@
+<div *ngIf="item" class="item">
+  <span class="item__text">{{ item.text }}</span>
+  <app-button class="item__delete-button" title="Delete" (click)="onRemoveButtonClick(item.id)"></app-button>
+</div>

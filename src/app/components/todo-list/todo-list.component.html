@@ -1,0 +1,41 @@
+<div class="tasks-container">
+  <h1 class="tasks-title">Todo List</h1>
+  <ng-container *ngIf="!isLoading; else spinner">
+    <ul *ngIf="todoList.length > 0; else empty" class="tasks-list">
+      <li *ngFor="let todo of todoList">
+        <app-todo-list-item
+          [item]="todo"
+          (removeItem)="removeItem($event)"
+          >
+        </app-todo-list-item>
+      </li>
+    </ul>
+  </ng-container>
+  
+  <div class="tasks-action">
+    <input
+      matInput
+      class="tasks-action__input"
+      type="text"
+      placeholder="Add a new todo"
+      [(ngModel)]="todoText"
+    />
+    <app-button
+      title="Add task"
+      class="tasks-action__button"
+      [isDisabled]="!todoText || isLoading"
+      (click)="onAddButtonClick(todoText)"
+    >
+    </app-button>
+  </div>
+</div>
+
+<ng-template #empty>
+  <div class="empty">You don't have any todo.</div>
+</ng-template>
+
+<ng-template #spinner>
+  <div class="spinner-container">
+    <mat-icon class="spinner">refresh</mat-icon>
+  </div>  
+</ng-template>

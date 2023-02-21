@@ -1,0 +1,23 @@
+:host {
+  display: block;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 8px;
+  background-color: rgb(240, 240, 240);
+  border-radius: 4px;
+
+  &__text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__delete-button {
+    min-width: 60px;
+  }
+}
