@@ -14,18 +14,15 @@
     background-color: #c5ecaf;
   }
 
-  &__text {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
   &__text-button {
     width: 100%;
     text-align: start;
     padding: 8px;
     border: 0;
     background-color: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     cursor: pointer;
   }
 

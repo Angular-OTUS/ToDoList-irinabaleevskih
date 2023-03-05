@@ -4,8 +4,9 @@
     type="button"
     tooltip="Click to view description"
     (click)="onItemClick(item.id)"
+    (dblclick)="onItemDblClick(item.id)"
   >
-    <span class="item__text">{{ item.text }}</span>
+    {{ item.text }}
   </button>  
   <app-button
     class="item__delete-button"

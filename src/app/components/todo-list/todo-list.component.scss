@@ -35,6 +35,20 @@
   margin-bottom: 8px;
 }
 
+.task-form__field {
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+}
+
+.task-form__input.mdc-text-field__input {
+  font-size: 14px;
+}
+
+.task-form__button {
+  min-width: 60px;
+  margin-right: 8px;
+}
+
 .tasks-action {
   display: grid;
   grid-template-columns: 1fr 80px;
@@ -52,10 +66,6 @@
     font-family: inherit;
     resize: vertical;
   }
-}
-
-.disabled {
-  opacity: 0.5;
 }
 
 .spinner-container {
