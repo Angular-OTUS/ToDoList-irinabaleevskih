@@ -3,14 +3,37 @@
   <div *ngIf="!isLoading; else spinner" class="tasks-list-container">
     <ng-container *ngIf="todoList.length > 0; else empty">
       <ul *ngIf="todoList.length > 0; else empty" class="tasks-list">
-        <li *ngFor="let todo of todoList" class="task">
-          <app-todo-list-item
-            [isSelected]="todo.id === selectedItemId"
-            [item]="todo"
-            (removeItem)="removeItem($event)"
-            (selectItem)="selectItem($event)"
-          >
-          </app-todo-list-item>
+        <li *ngFor="let todo of todoList; trackBy: trackById" class="task">
+          
+          <mat-form-field *ngIf="todo.id === editedItemId; else item" class="task-form__field">
+            <input
+              #titleInput
+              matInput
+              class="task-form__input"
+              [formControl]="titleControl"
+              (focusout)="onSave(todo.id, titleControl.value)"
+            />
+            <app-button
+              matSuffix
+              class="task-form__button"
+              title="Save"
+              tooltip="Click to save text todo"
+              [isDisabled]="titleControl.value === ''"
+              (click)="onSave(todo.id, titleControl.value)"
+            >
+            </app-button>
+          </mat-form-field>
+               
+          <ng-template #item>
+            <app-todo-list-item
+              [isSelected]="todo.id === selectedItemId"
+              [item]="todo"
+              (removeItem)="removeItem($event)"
+              (selectItemByClick)="setSelectedItem($event)"
+              (selectItemByDblClick)="setEditedItem($event, todo.text)"
+            >
+            </app-todo-list-item>
+          </ng-template>
         </li> 
       </ul>
       <div *ngIf="selectedItemId !== null; else emptyDescription" class="tasks-description">

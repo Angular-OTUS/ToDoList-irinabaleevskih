@@ -47,3 +47,26 @@ app-root {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// material style
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+  color: #000;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+.mat-mdc-form-field-has-icon-suffix .mat-mdc-text-field-wrapper {
+  padding-left: 8px;
+}
+
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  padding-top: 3px;
+  padding-bottom: 4px;
+}
+
+.mat-mdc-form-field-infix {
+  min-height: 0;
+}

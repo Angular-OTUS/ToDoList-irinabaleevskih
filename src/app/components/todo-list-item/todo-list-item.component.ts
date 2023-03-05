@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { Todo } from "src/app/models/todo";
+import { Todo } from "src/core/models/todo";
 
 @Component({
   selector: 'app-todo-list-item',
@@ -17,13 +17,20 @@ export class TodoListItemComponent {
   public readonly removeItem = new EventEmitter<number>();
 
   @Output()
-  public readonly selectItem = new EventEmitter<number>();
+  public readonly selectItemByClick = new EventEmitter<number>();
+
+  @Output()
+  public readonly selectItemByDblClick = new EventEmitter<number>();
 
   protected onRemoveButtonClick(todoId: number): void {
     this.removeItem.emit(todoId);
   }
 
   protected onItemClick(todoId: number): void {
-    this.selectItem.emit(todoId);
+    this.selectItemByClick.emit(todoId);
+  }
+
+  protected onItemDblClick(todoId: number): void {
+    this.selectItemByDblClick.emit(todoId);
   }
 }
